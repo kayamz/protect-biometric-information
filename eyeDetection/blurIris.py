@@ -3,9 +3,11 @@ def iris_blur(image_file_name) :
     import numpy as np
     import matplotlib.pyplot as plt
     import math
+    import os
 
     face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
     eye_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_eye.xml')
+    outputImage = os.path.dirname(os.path.realpath(__file__))+'/protectedImage/new.jpg'
 
     img = cv2.imread(image_file_name)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -35,8 +37,17 @@ def iris_blur(image_file_name) :
             
             else :
                 img_second_blurred = np.where(mask_img > 0, img_all_blurred, img_first_blurred)
+                tmp += 2
 
-    cv2.imwrite('./protectedImage/new.jpg',img_second_blurred)
+    if tmp == 1:
+        cv2.imwrite(outputImage,img_first_blurred)
+
+    elif tmp == 2:
+        cv2.imwrite(outputImage,img_second_blurred)
+
+    else :
+        cv2.imwrite(outputImage,img)
+
     
 if __name__ == '__main__':
     iris_blur()
