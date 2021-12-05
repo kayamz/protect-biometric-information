@@ -1,7 +1,6 @@
 from __future__ import division
 
 def detect_fingerPoint(inputImage) :
-    # from __future__ import division
     import cv2
     import time
     import numpy as np
@@ -63,17 +62,13 @@ def detect_fingerPoint(inputImage) :
             cv2.circle(frame, points[partB], 8, (0, 0, 255), thickness=-1, lineType=cv2.FILLED)
 
     
+    secondPointTop = points[8]
+    secondPointBottom = points[7]
+    thirdPointTop = points[12]
+    thirdPointBottom = points[11]
 
+    return secondPointTop,secondPointBottom,thirdPointTop,thirdPointBottom
 
-    # cv2.imshow('Output-Keypoints', frameCopy)
-    # cv2.imshow('Output-Skeleton', frame)
-
-    # cv2.imwrite('Output-Keypoints.jpg', frameCopy)
-    # cv2.imwrite('Output-Skeleton.jpg', frame)
-
-    # print("Total time taken : {:.3f}".format(time.time() - t))
-
-    # cv2.waitKey(0)
 
 if __name__ == '__main__':
     detect_fingerPoint()

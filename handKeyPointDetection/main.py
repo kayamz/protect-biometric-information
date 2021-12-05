@@ -1,12 +1,11 @@
-# import blurFinger
+# import handPoseImage
 # import os
 
-# inputImage = os.path.dirname(os.path.realpath(__file__))+'/faceSampleImage/vSign.jpg'
-# blurFinger.Finger_blur(inputImage)
+# inputImage = os.path.dirname(os.path.realpath(__file__))+'/handSampleImage/vSelfie.jpg'
+# handPoseImage.detect_fingerPoint(inputImage)
 
-
-import handPoseImage
+import blurFinger
 import os
 
 inputImage = os.path.dirname(os.path.realpath(__file__))+'/handSampleImage/vSign.jpg'
-handPoseImage.detect_fingerPoint(inputImage)
+blurFinger.Finger_blur(inputImage)
